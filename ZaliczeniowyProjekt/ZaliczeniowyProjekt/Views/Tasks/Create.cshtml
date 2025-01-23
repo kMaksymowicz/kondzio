@@ -1,0 +1,21 @@
+@model ZaliczeniowyProjekt.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Dodaj zadanie";
+}
+
+<h2>Dodaj zadanie</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Tytuł</label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <label>Opis</label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <button type="submit">Zapisz</button>
+</form>

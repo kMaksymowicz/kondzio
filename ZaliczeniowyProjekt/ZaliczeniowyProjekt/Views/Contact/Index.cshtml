@@ -1,0 +1,32 @@
+@model ZaliczeniowyProjekt.Models.ContactMessage
+
+@{
+    ViewData["Title"] = "Kontakt";
+}
+
+<h2>Formularz kontaktowy</h2>
+<hr />
+
+<form asp-action="Index" method="post" class="col-md-6">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Message" class="form-label">Wiadomość</label>
+        <textarea asp-for="Message" rows="5" class="form-control"></textarea>
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Wyślij</button>
+</form>

@@ -1,0 +1,28 @@
+@model IEnumerable<ZaliczeniowyProjekt.Models.TaskItem>
+
+@{
+    ViewData["Title"] = "Moje zadania";
+}
+
+<h2>Moje zadania</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nowe zadanie</a>
+</p>
+
+<div class="row">
+    @foreach (var task in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    @task.Title
+                </div>
+                <div class="card-body">
+                    <p>@task.Description</p>
+                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

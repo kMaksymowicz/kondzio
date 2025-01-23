@@ -1,0 +1,22 @@
+@model ZaliczeniowyProjekt.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Usuń zadanie";
+}
+
+<div class="col-6">
+    <h2>Usuń zadanie</h2>
+    <div class="alert alert-warning" role="alert">
+        <h4>Czy na pewno chcesz usunąć zadanie?</h4>
+        <p>
+            <strong>@Model.Title</strong> - @Model.Description
+        </p>
+    </div>
+    
+    <form asp-action="DeleteConfirmed" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button>
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>
